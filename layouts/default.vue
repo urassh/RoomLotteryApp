@@ -3,6 +3,7 @@
         <div class="container">
             <h1>LotteryApp</h1>
             <ul>
+                <li>urassh</li>
                 <li>SignIn</li>
                 <li>SignUp</li>
             </ul>
