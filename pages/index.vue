@@ -1,6 +1,13 @@
 <template>
     <section id="room">
-        <h1>LotteryRoom</h1>
+        <h1>LotteryRooms</h1>
+
+        <ul>
+            <li>sample1</li>
+            <li>sample2</li>
+            <li>sample3</li>
+            <li>sample4</li>
+        </ul>
     </section>
 </template>
 
@@ -18,5 +25,22 @@ h1 {
     margin-bottom: 10px;
     color: #333;
     border-bottom: 1px solid #ccc;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+li {
+    width: 50%;
+    padding: 1%;
+}
+
+@media (max-width: 900px) {
+    li {
+        width: 100%;
+    }
 }
 </style>
