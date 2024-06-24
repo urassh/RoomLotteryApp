@@ -3,10 +3,18 @@
         <h1>LotteryRooms</h1>
 
         <ul>
-            <li>sample1</li>
-            <li>sample2</li>
-            <li>sample3</li>
-            <li>sample4</li>
+            <li>
+                <LotteryRoom></LotteryRoom>
+            </li>
+            <li>
+                <LotteryRoom></LotteryRoom>
+            </li>
+            <li>
+                <LotteryRoom></LotteryRoom>
+            </li>
+            <li>
+                <LotteryRoom></LotteryRoom>
+            </li>
         </ul>
     </section>
 </template>
