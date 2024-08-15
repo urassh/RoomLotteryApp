@@ -22,38 +22,42 @@ const prizes = ref<Prize[]>(room.prizes);
 
 <template>
   <section class="room-view">
-    <!-- Main Content -->
-    <div class="main-content">
-      <!-- 参加者数・当選者数 -->
-      <div class="info-section">
-        <div>
-          <p>参加数</p>
-          <p class="number">{{ participants.length }}</p>
-          <p>人</p>
-        </div>
-        <div>
-          <p>当選</p>
-          <p class="number">{{ winner.length }}</p>
-          <p>人</p>
+    <div class="head-section">
+      <div class="title-container">
+        <h1>{{ room.name }}</h1>
+        <div class="number-container">
+          <div class="number-wrap">
+            <p>参加数</p>
+            <p class="number">{{ participants.length }}</p>
+            <p>人</p>
+          </div>
+          <div class="number-wrap">
+            <p>当選</p>
+            <p class="number">{{ winner.length }}</p>
+            <p>人</p>
+          </div>
         </div>
       </div>
 
-      <!-- 参加者一覧 -->
+      <div class="qr-code-section">
+        <h2>QRCode</h2>
+      </div>
+    </div>
+
+    <div class="main-container">
       <ParticipantList :participants="participants" :create-participant="createParticipant" />
 
-      <!-- 当選者一覧 -->
       <div class="winners-section">
         <h2>当選者一覧</h2>
         <div class="winners-list">
           <ul>
             <li v-for="(winner, index) in winner" :key="index">
-              {{ winner.name }} [{{ winner.id.toString().padStart(3, '0') }}] {{ winner.prize.name }}
+              {{ winner.name }} [{{ winner.lotteryId }}] {{ winner.prize.name }}
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- 景品一覧 -->
       <div class="prizes-section">
         <h2>景品一覧</h2>
         <ul>
@@ -61,14 +65,8 @@ const prizes = ref<Prize[]>(room.prizes);
         </ul>
         <button class="create-button">景品作成</button>
       </div>
-
-      <!-- QRコード -->
-      <div class="qr-code-section">
-        <h2>QRCode</h2>
-      </div>
     </div>
 
-    <!-- 抽選ボタン -->
     <button class="draw-button">抽選を引く</button>
   </section>
 </template>
@@ -81,34 +79,47 @@ const prizes = ref<Prize[]>(room.prizes);
   padding: 20px;
 }
 
-.header {
+.head-section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.title-container {
+  width: 100%;
+}
+
+.title-container h1 {
+  font-size: 3rem;
+}
+
+.number-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.number-wrap {
+  width: 40%;
+  display: flex;
+  gap: 7px;
+  align-items: flex-end;
+}
+
+.qr-code-section {
+  background-color: #f9f9f9;
+  width: 25%;
+  aspect-ratio: 1;
   padding: 10px;
-  background-color: #f0f0f0;
-  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
 }
 
-.header h1 {
-  font-size: 2rem;
-}
-
-.menu-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-}
-
-.main-content {
+.main-container {
   display: flex;
-  justify-content: space-around;
-}
-
-.info-section {
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
+  justify-content: space-between;
 }
 
 .number {
@@ -122,7 +133,7 @@ const prizes = ref<Prize[]>(room.prizes);
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 5px;
-  width: 20%;
+  width: 30%;
 }
 
 .scroll-view {
@@ -149,14 +160,6 @@ const prizes = ref<Prize[]>(room.prizes);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.qr-code-section {
-  background-color: #f9f9f9;
-  width: 15%;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
 }
 
 .draw-button {

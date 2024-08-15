@@ -26,7 +26,7 @@ const onCreateParticipantClick = () => {
     <div class="scroll-view">
       <ul>
         <li v-for="participant in participants" :key="participant.id">
-          {{ participant.name }} [{{ participant.id.toString().padStart(3, '0') }}]
+          {{ participant.name }} [{{ participant.lotteryId }}]
         </li>
       </ul>
     </div>
@@ -40,6 +40,10 @@ const onCreateParticipantClick = () => {
   padding: 10px;
   border-radius: 5px;
   width: 100%;
+}
+
+.participants-section h2 {
+  margin-bottom: 20px;
 }
 
 .scroll-view {
@@ -60,7 +64,7 @@ const onCreateParticipantClick = () => {
 }
 
 .create-button {
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 5px;
   background-color: #e0e0e0;
   border: none;

@@ -88,7 +88,6 @@ export const useRoomStore = (roomId: number) => {
   })();
 };
 
-// すべてのRoomを管理するストアを定義
 export const useRoomsStore = defineStore("rooms", () => {
     const rooms = ref<number[]>([]);
 

@@ -2,6 +2,8 @@
 import type { IRoomService } from '@/interfaces/IRoomService';
 import type { Room } from '@/types/room';
 import type { Participant } from '~/types/participant';
+import type { Prize } from '~/types/prize';
+import type { Winner } from '~/types/winner';
 
 export class RoomServiceDummy implements IRoomService {
   async getRooms(): Promise<Room[]> {
@@ -13,22 +15,38 @@ export class RoomServiceDummy implements IRoomService {
       { id: 5, lotteryId: "005",name: 'Eve' }
     ];
 
-    const samplePrizes = [
+    const samplePrizes: Prize[] = [
       { id: 1, name: 'アマギフ2万円' },
       { id: 2, name: 'アマギフ5千円' },
       { id: 3, name: 'スタバ1000円' },
     ];
 
-    const sampleWinners = [
-      { id: 1, name: 'Alice', prize: samplePrizes[0] },
-      { id: 2, name: 'Bob', prize: samplePrizes[2] }
+    const sampleWinners: Winner[] = [
+      { id: 1, lotteryId: "001", name: 'Alice', prize: samplePrizes[0] },
+      { id: 2, lotteryId: "002", name: 'Bob', prize: samplePrizes[2] }
     ];
 
     const rooms: Room[] = [
       { 
         id: 1, 
         name: 'Room1', 
-        participants: [sampleParticipants[0], sampleParticipants[1]], 
+        participants: [
+          sampleParticipants[0],
+          sampleParticipants[1],
+          sampleParticipants[2],
+          sampleParticipants[3],
+          sampleParticipants[4],
+          sampleParticipants[0],
+          sampleParticipants[1],
+          sampleParticipants[2],
+          sampleParticipants[3],
+          sampleParticipants[4],
+          sampleParticipants[0],
+          sampleParticipants[1],
+          sampleParticipants[2],
+          sampleParticipants[3],
+          sampleParticipants[4],
+        ], 
         winner: [sampleWinners[0]], 
         prizes: [samplePrizes[0], samplePrizes[1]] 
       },
