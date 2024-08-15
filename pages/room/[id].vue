@@ -11,26 +11,10 @@ import type { Winner } from '~/types/winner';
 //   },
 // });
 
-const room = {
-  id: 1,
-  name: '横浜祭昼夜祭 抽選大会vol.1',
-  participants: [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' },
-    { id: 3, name: 'Charlie' },
-    { id: 4, name: 'Diana' },
-    { id: 5, name: 'Eve' },
-  ],
-  winner: [
-    { id: 1, name: 'Alice', prize: { id: 1, name: 'アマギフ2万円' } },
-    { id: 2, name: 'Bob', prize: { id: 3, name: 'スタバ1000円' } },
-  ],
-  prizes: [
-    { id: 1, name: 'アマギフ2万円' },
-    { id: 2, name: 'アマギフ5千円' },
-    { id: 3, name: 'スタバ1000円' },
-  ],
-};
+const route = useRoute();
+const roomId: number = Number(route.params.id);
+const roomStore = useRoomStore(roomId);
+const room = roomStore.getRoom();
 
 const createParticipant = () => {
     const participants = room.participants;

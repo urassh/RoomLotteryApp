@@ -21,7 +21,7 @@ const props = defineProps({
                 <p>当選者 : {{ room.winner.length }}名</p>
             </div>
 
-            <NuxtLink :to="'/room/' + room.id">ルームを開く</NuxtLink>
+            <NuxtLink :to="'/room/' + room.id" class="button">ルームを開く</NuxtLink>
         </div>
     </div>
 </template>
@@ -48,7 +48,7 @@ const props = defineProps({
     justify-content: center;
 }
 
-button {
+.button {
     background-color: #04aa6d;
     border: none;
     width: 70%;

@@ -3,7 +3,7 @@
         <h1 class="room-title">CreateRoom</h1>
 
         <div class="container">
-            <NuxtLink to="/registerRoom" className="button">部屋を作成する</NuxtLink>
+            <NuxtLink to="/registerRoom" class="button">部屋を作成する</NuxtLink>
         </div>
     </div>
 </template>
