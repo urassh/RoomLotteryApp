@@ -1,14 +1,27 @@
+<script setup lang="ts">
+import type { PropType } from 'vue';
+import { type Room } from '~/types/room';
+
+const props = defineProps({
+  room: {
+    type: Object as PropType<Room>,
+    required: true,
+  },
+});
+
+</script>
+
 <template>
     <div class="room">
-        <h1 class="room-title">LotteryRoom</h1>
+        <h1 class="room-title">{{ room.name }}</h1>
 
         <div class="container">
             <div class="infomation">
-                <p>参加者 : 30名</p>
-                <p>当選者 : 30名</p>
+                <p>参加者 : {{ room.participants.length }}名</p>
+                <p>当選者 : {{ room.winner.length }}名</p>
             </div>
 
-            <button>ルームを開く</button>
+            <NuxtLink :to="'/room/' + room.id">ルームを開く</NuxtLink>
         </div>
     </div>
 </template>
