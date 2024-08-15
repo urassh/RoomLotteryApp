@@ -1,15 +1,16 @@
 // src/services/RoomService.ts
 import type { IRoomService } from '@/interfaces/IRoomService';
 import type { Room } from '@/types/room';
+import type { Participant } from '~/types/participant';
 
 export class RoomServiceDummy implements IRoomService {
   async getRooms(): Promise<Room[]> {
-    const sampleParticipants = [
-      { id: 1, name: 'Alice' },
-      { id: 2, name: 'Bob' },
-      { id: 3, name: 'Charlie' },
-      { id: 4, name: 'Diana' },
-      { id: 5, name: 'Eve' }
+    const sampleParticipants: Participant[] = [
+      { id: 1, lotteryId: "001", name: 'Alice' },
+      { id: 2, lotteryId: "002", name: 'Bob' },
+      { id: 3, lotteryId: "003",name: 'Charlie' },
+      { id: 4, lotteryId: "004",name: 'Diana' },
+      { id: 5, lotteryId: "005",name: 'Eve' }
     ];
 
     const samplePrizes = [

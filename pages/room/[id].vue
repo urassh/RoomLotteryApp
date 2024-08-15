@@ -1,15 +1,7 @@
 <script setup lang="ts">
 import type { Participant } from '~/types/participant';
 import type { Prize } from '~/types/prize';
-import type { Room } from '~/types/room';
 import type { Winner } from '~/types/winner';
-
-// const props = defineProps({
-//   room: {
-//     type: Object as PropType<Room>,
-//     required: true,
-//   },
-// });
 
 const route = useRoute();
 const roomId: number = Number(route.params.id);
@@ -19,7 +11,8 @@ const room = roomStore.getRoom();
 const createParticipant = () => {
     const participants = room.participants;
     const newId = participants.length ? participants[participants.length - 1].id + 1 : 1;
-    participants.push({ id: newId, name: '新規参加者' });
+    const newParticipant: Participant = { id: 214, lotteryId: `${newId}`, name: '新規参加者' }
+    roomStore.addParticipant(newParticipant);
 };
 
 const participants = ref<Participant[]>(room.participants);
