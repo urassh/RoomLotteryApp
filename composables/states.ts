@@ -117,3 +117,26 @@ export const useRoomsStore = defineStore("rooms", () => {
 
     return { rooms, setRooms, addRoom, removeRoom };
 });
+
+export const useLotteryStore = defineStore("lottery", () => {
+    const lotteryId = ref<string>("");
+    const roomId = ref<number>(0);
+
+    function getLottery(): (string | number)[] {
+        return [lotteryId.value, roomId.value];
+    }
+
+    function setLottery(room: Room) {
+        const randomIndex = Math.floor(Math.random() * room.participants.length);
+        const winner = room.winner[randomIndex];
+        lotteryId.value = winner.lotteryId;
+        roomId.value = room.id;
+    }
+
+    function resetLottery() {
+        lotteryId.value = "";
+        roomId.value = 0;
+    }
+
+    return { lotteryId, roomId, getLottery, setLottery, resetLottery };
+});
