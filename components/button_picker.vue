@@ -16,7 +16,7 @@ const emit = defineEmits<Emits<ContentProvider>>();
 
 const selectedItem = ref(props.modelValue);
 
-const onChangeItem = (item: ContentProvider) => {
+const onChangeItem = <T extends ContentProvider>(item: T) => {
   selectedItem.value = item;
   emit('onChangeItem', item);
 };
