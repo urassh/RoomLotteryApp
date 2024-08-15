@@ -67,7 +67,9 @@ const prizes = ref<Prize[]>(room.prizes);
       </div>
     </div>
 
-    <button class="draw-button">抽選を引く</button>
+    <div class="lottery-button">
+      <NuxtLink :to="'/prizeSelect/' + room.id" class="draw-button">抽選を引く</NuxtLink>
+    </div>
   </section>
 </template>
 
@@ -162,12 +164,17 @@ const prizes = ref<Prize[]>(room.prizes);
   cursor: pointer;
 }
 
+.lottery-button {
+  text-align: center;
+  margin: 80px auto;
+}
+
 .draw-button {
-  margin: 20px auto;
-  display: block;
   padding: 10px 20px;
   font-size: 1.5rem;
-  background-color: #e0e0e0;
+  text-decoration: none;
+  background-color: #ff6e6e;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;

@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { PrizeContent, type ContentProvider } from './prize_content';
 
-const initialPrizes: PrizeContent[] = [
-  new PrizeContent({ id: 1, name: 'アマギフ2万円' }),
-  new PrizeContent({ id: 2, name: 'スタバ1000円' }),
-  new PrizeContent({ id: 3, name: 'スタバ1000円' }),
-  new PrizeContent({ id: 4, name: 'スタバ1000円' }),
-  new PrizeContent({ id: 5, name: '???' }),
-];
+const route = useRoute();
+const roomId: number = Number(route.params.id);
+const roomStore = useRoomStore(roomId);
+const room = roomStore.getRoom();
+const initialPrizes: PrizeContent[] = room.prizes.map((prize) => new PrizeContent(prize));
 
 const prizes = ref<PrizeContent[]>(initialPrizes);
 const selectedItem = ref<PrizeContent>(initialPrizes[0]);
@@ -35,7 +33,9 @@ const handleItemChange = <T extends ContentProvider>(item: T) => {
         @onChangeItem="handleItemChange"
     />
 
-    <button class="draw-button">抽選</button>
+    <div class="register-container">
+        <button class="draw-button">抽選</button>
+    </div>
   </section>
 </template>
 
@@ -48,8 +48,15 @@ const handleItemChange = <T extends ContentProvider>(item: T) => {
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 3rem;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .select-container {
@@ -73,4 +80,21 @@ const handleItemChange = <T extends ContentProvider>(item: T) => {
   color: #007bff;
   font-size: 1.4rem;
 }
+
+.register-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.draw-button {
+    padding: 10px 20px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffabab;
+    color: white;
+    cursor: pointer;
+}
+
 </style>

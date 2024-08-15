@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import type { ContentProvider } from '@/pages/result/prize_content';
+import type { ContentProvider } from '~/pages/prizeSelect/prize_content';
+
 
 interface Emits<T extends ContentProvider> {
   (event: 'onChangeItem', item: T): void;
