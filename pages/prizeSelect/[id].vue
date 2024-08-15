@@ -95,6 +95,12 @@ h3 {
     background-color: #ffabab;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.draw-button:hover {
+    background-color: #ff6666;
+    transition: background-color 0.3s ease-in-out;
 }
 
 </style>
