@@ -90,22 +90,31 @@ export const useRoomStore = (roomId: number) => {
 
 // すべてのRoomを管理するストアを定義
 export const useRoomsStore = defineStore("rooms", () => {
-  const rooms = ref<number[]>([]);
+    const rooms = ref<number[]>([]);
 
-  function addRoom(room: Room) {
-    if (!rooms.value.includes(room.id)) {
+    function setRooms(newRooms: Room[]) {
+        rooms.value = newRooms.map((room) => room.id);
+        newRooms.forEach((room) => {
+            const roomStore = useRoomStore(room.id);
+            roomStore.setRoom(room);
+        });
+    }
+
+    function addRoom(room: Room) {
+        if (rooms.value.includes(room.id)) return;
+
         rooms.value.push(room.id);
         const roomStore = useRoomStore(room.id);
         roomStore.setRoom(room);
-    }
-  }
 
-  function removeRoom(roomId: number) {
-    const index = rooms.value.indexOf(roomId);
-    if (index !== -1) {
-      rooms.value.splice(index, 1);
     }
-  }
 
-  return { rooms, addRoom, removeRoom };
+    function removeRoom(roomId: number) {
+        const index = rooms.value.indexOf(roomId);
+        if (index === -1) return;
+        
+        rooms.value.splice(index, 1);
+    }
+
+    return { rooms, setRooms, addRoom, removeRoom };
 });
