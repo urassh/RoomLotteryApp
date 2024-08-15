@@ -6,12 +6,10 @@ const props = defineProps({
     type: Array as PropType<Prize[]>,
     required: true,
   },
-  // 親からのpropで選択中の景品IDを受け取る
   selectedPrizeId: {
     type: Number,
     required: true,
   },
-  // 選択中の景品IDを親に通知するためのemit
   onUpdateSelectedPrizeId: {
     type: Function as PropType<(id: number) => void>,
     required: true,
