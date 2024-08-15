@@ -1,8 +1,11 @@
 <template>
-    <section id="room">
+    <section id="rooms">
         <h1>LotteryRooms</h1>
 
         <ul>
+            <li>
+                <CreateRoom></CreateRoom>
+            </li>
             <li>
                 <LotteryRoom></LotteryRoom>
             </li>
@@ -20,7 +23,7 @@
 </template>
 
 <style scoped>
-#room {
+#rooms {
     margin: 80px 1%;
     padding: 10px;
     background-color: #f0f0f0;
