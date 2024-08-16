@@ -41,7 +41,7 @@ const props = defineProps({
 
 .room:hover {
     box-shadow: 0 0 10px #09b412;
-    background-color: #ffffff8c;
+    background-color: #ffffff9f;
     transition: all 0.3s ease-in-out;
 }
 
