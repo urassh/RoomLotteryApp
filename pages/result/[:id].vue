@@ -31,4 +31,15 @@ if (winner === undefined) {
 </template>
 
 <style scoped>
+.result-view {
+    font-family: 'Arial', sans-serif;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
 </style>
