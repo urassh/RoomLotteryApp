@@ -10,17 +10,28 @@
 
 <style scoped>
 .room {
-    margin: 1%;
+    margin: 2%;
     padding: 10px;
     height: 180px;
-    background-color: #ffffff;
+    background-color: #f0f0f06a;
     border-radius: 5px;
     border: 1px solid #09b4125e;
-    box-shadow: 0 0 3px #09b412;
+    box-shadow: 0 0 5px #09b412;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+.room:hover {
+    box-shadow: 0 0 10px #09b412;
+    background-color: #ffffff9f;
+    transition: all 0.3s ease-in-out;
 }
 
 .room-title {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #333;
+    color: #333;
 }
 
 .container {

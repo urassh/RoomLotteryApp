@@ -28,31 +28,40 @@ const props = defineProps({
 
 <style scoped>
 .room {
-    margin: 1%;
+    margin: 2%;
     padding: 10px;
     height: 180px;
-    background-color: #ffffff;
+    background-color: #ffffff5a;
+    color: #333;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 3px #ccc;
+    border: 1px solid #09b4125e;
+    box-shadow: 0 0 5px #09b412;
+    transition: all 0.3s ease-in-out;
+}
+
+.room:hover {
+    box-shadow: 0 0 10px #09b412;
+    background-color: #ffffff8c;
+    transition: all 0.3s ease-in-out;
 }
 
 .room-title {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #333;
+    font-size: 1.8rem;
 }
 
 .container {
     width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: space-between;
 }
 
 .button {
     background-color: #04aa6d;
     border: none;
     width: 70%;
-    color: white;
+    color: #fff;
     padding: 12px 32px;
     text-align: center;
     text-decoration: none;

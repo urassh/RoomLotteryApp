@@ -33,15 +33,16 @@ onMounted(async () => {
 #rooms {
     margin: 80px 1%;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #f0f0f06a;
     border-radius: 5px;
-    box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #fff;
 }
 
 h1 {
     font-size: 2.2em;
     margin-bottom: 10px;
-    color: #333;
+    color: white;
+    text-shadow: 0 0 5px #09b412;
     border-bottom: 1px solid #ccc;
 }
 
