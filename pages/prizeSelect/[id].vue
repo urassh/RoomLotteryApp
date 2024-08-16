@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLotteryStore } from '~/composables/states';
 import { PrizeContent, type ContentProvider } from './prize_content';
 
 const route = useRoute();
@@ -14,6 +15,12 @@ const handleItemChange = <T extends ContentProvider>(item: T) => {
   if (item instanceof PrizeContent) {
     selectedItem.value = item;
   }
+};
+
+const draw = () => {
+  const lotteryStore = useLotteryStore();
+  lotteryStore.setLottery(room);
+  navigateTo('/result/' + roomId);
 };
 
 </script>
@@ -34,7 +41,7 @@ const handleItemChange = <T extends ContentProvider>(item: T) => {
     />
 
     <div class="register-container">
-        <button class="draw-button">抽選</button>
+        <button class="draw-button" @click="draw">抽選</button>
     </div>
   </section>
 </template>

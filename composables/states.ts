@@ -119,24 +119,39 @@ export const useRoomsStore = defineStore("rooms", () => {
 });
 
 export const useLotteryStore = defineStore("lottery", () => {
-    const lotteryId = ref<string>("");
-    const roomId = ref<number>(0);
+    const participant = ref<Participant | undefined>();
+    const prize = ref<Prize | undefined>();
+    const room = ref<Room | undefined>();
 
-    function getLottery(): (string | number)[] {
-        return [lotteryId.value, roomId.value];
+    function getWinner(): Winner | undefined {
+        if (!participant.value || !prize.value || !room.value) return;
+        return {
+            id: participant.value.id,
+            name: participant.value.name,
+            prize: prize.value,
+            lotteryId: participant.value.lotteryId
+        }
     }
 
-    function setLottery(room: Room) {
-        const randomIndex = Math.floor(Math.random() * room.participants.length);
-        const winner = room.winner[randomIndex];
-        lotteryId.value = winner.lotteryId;
-        roomId.value = room.id;
+    function getLottery(): (Participant | Prize | Room)[] | undefined {
+        if (!participant.value || !prize.value || !room.value) return;
+        return [participant.value, prize.value, room.value];
+    }
+
+    function setLottery(newRoom: Room) {
+        const randomParticipantId = Math.floor(Math.random() * newRoom.participants.length);
+        const randomPrizeId = Math.floor(Math.random() * newRoom.prizes.length);
+
+        participant.value = newRoom.participants[randomParticipantId];
+        prize.value = newRoom.prizes[randomPrizeId];
+        room.value = newRoom;
     }
 
     function resetLottery() {
-        lotteryId.value = "";
-        roomId.value = 0;
+        participant.value = undefined;
+        prize.value = undefined;
+        room.value = undefined;
     }
 
-    return { lotteryId, roomId, getLottery, setLottery, resetLottery };
+    return { participant, prize, room, getLottery, setLottery, resetLottery, getWinner };
 });
