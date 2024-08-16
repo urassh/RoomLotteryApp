@@ -1,7 +1,9 @@
 <template>
-    <NuxtLayout>
-        <NuxtPage></NuxtPage>
-    </NuxtLayout>
+    <div class="dark-mode">
+        <NuxtLayout>
+            <NuxtPage></NuxtPage>
+        </NuxtLayout>
+    </div>
 </template>
 
 <style>
@@ -13,5 +15,10 @@
 
 li {
     list-style-type: none;
+}
+
+html, .dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 </style>

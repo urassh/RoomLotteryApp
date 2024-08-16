@@ -4,7 +4,7 @@
             <h1>LotteryApp</h1>
             <ul>
                 <li>urassh</li>
-                <li>SignIn</li>
+                <li>Login</li>
                 <li>SignUp</li>
             </ul>
         </div>
@@ -15,11 +15,18 @@
 </template>
 
 <style scoped>
+header, body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+}
+
 header {
-    background-color: #575757;
     color: white;
-    padding: 10px;
+    padding: 12px;
     margin: 1%;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #333;
+    border: 1px solid #333;
 }
 
 .container {
@@ -28,7 +35,7 @@ header {
 }
 
 h1 {
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 ul {
