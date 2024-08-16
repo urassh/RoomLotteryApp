@@ -34,7 +34,7 @@ onMounted(() => {
     },
     {
       root: document.querySelector('.prize-list'),
-      threshold: 0.5, // 50%以上表示されている場合にハイライト
+      threshold: 0.5,
     }
   );
 
@@ -62,9 +62,11 @@ onMounted(() => {
 
 <style scoped>
 .prize-list {
-  max-height: 200px;
+  height: 200px;
   overflow-y: auto;
-  margin-bottom: 20px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
 }
 
 .prize-list ul {

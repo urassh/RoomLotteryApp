@@ -36,20 +36,22 @@ const onCreateParticipantClick = () => {
 
 <style scoped>
 .participants-section {
-  background-color: #f9f9f9;
+  background-color: #ffffff9f;
+  color: #333;
   padding: 10px;
   border-radius: 5px;
-  width: 100%;
 }
 
 .participants-section h2 {
   margin-bottom: 20px;
+  color: #333;
 }
 
 .scroll-view {
   height: 200px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding: 5px;
 }
 

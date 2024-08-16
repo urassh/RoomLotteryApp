@@ -52,7 +52,7 @@ const prizes = ref<Prize[]>(room.prizes);
         <div class="winners-list">
           <ul>
             <li v-for="(winner, index) in winner" :key="index">
-              {{ winner.name }} [{{ winner.lotteryId }}] {{ winner.prize.name }}
+              {{ winner.name }} [{{ winner.lotteryId }}] - {{ winner.prize.name }}
             </li>
           </ul>
         </div>
@@ -60,9 +60,11 @@ const prizes = ref<Prize[]>(room.prizes);
 
       <div class="prizes-section">
         <h2>景品一覧</h2>
-        <ul>
-          <li v-for="prize in prizes" :key="prize.id">{{ prize.name }}</li>
-        </ul>
+        <div class="prizes-list">
+          <ul>
+            <li v-for="prize in prizes" :key="prize.id">{{ prize.name }}</li>
+          </ul>
+        </div>
         <button class="create-button">景品作成</button>
       </div>
     </div>
@@ -88,12 +90,17 @@ const prizes = ref<Prize[]>(room.prizes);
   margin-bottom: 60px;
 }
 
+.winners-section h2 {
+  margin-bottom: 20px;
+}
+
 .title-container {
   width: 100%;
 }
 
 .title-container h1 {
   font-size: 3rem;
+  text-shadow: 1px 1px 1px green;
 }
 
 .number-container {
@@ -111,7 +118,7 @@ const prizes = ref<Prize[]>(room.prizes);
 }
 
 .qr-code-section {
-  background-color: #f9f9f9;
+  background-color: #ffffff9f;
   width: 25%;
   aspect-ratio: 1;
   padding: 10px;
@@ -132,27 +139,19 @@ const prizes = ref<Prize[]>(room.prizes);
 .participants-section,
 .winners-section,
 .prizes-section {
-  background-color: #f9f9f9;
+  background-color: #ffffff9f;
+  color: #333;
   padding: 10px;
   border-radius: 5px;
   width: 30%;
 }
 
-.scroll-view {
+.winners-list {
   height: 200px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding: 5px;
-}
-
-.scroll-view ul {
-  list-style: none;
-  padding: 0;
-}
-
-.scroll-view li {
-  padding: 5px 0;
-  font-size: 1rem;
 }
 
 .create-button {
@@ -178,5 +177,17 @@ const prizes = ref<Prize[]>(room.prizes);
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.prizes-section h2{
+  margin-bottom: 20px;
+}
+
+.prizes-list {
+  height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
 }
 </style>
